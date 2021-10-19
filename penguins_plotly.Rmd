@@ -13,6 +13,7 @@ library(tidyverse)
 library(palmerpenguins)
 library(plotly)
 library(DT)
+library(here)
 
 # install.packages("package_name")
 ```
@@ -30,6 +31,15 @@ ggplotly(penguins_graph)
 datatable(penguins)
 ```
 
+Bar graph (using geom_bar) of counts of penguins by island, with fill color indicating penguin species. Then were; going to save ghat using 'ggasave()'. 
+
+```{r}
+ggplot(data = penguins, aes(x = island)) + 
+  geom_bar(aes(fill = species))
+
+
+ggsave(here("final_figures", "island_counts.png"))
+```
 
 
 
